@@ -1,2 +1,2 @@
-# COMP126
+# COMP290
 Git, vim, bash education. 

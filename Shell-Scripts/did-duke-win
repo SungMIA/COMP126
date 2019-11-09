@@ -1,0 +1,32 @@
+#!/bin/bash
+# Author: Sungdong Kim
+# I pledge the UNC and COMP290 Honor Code
+url=${1}
+
+if [ -z "${url}" ];
+then
+	#There is no first argument provided
+	result=$(curl diddukewin.com | grep -oP '(?<=<p class=)\w+')
+	if [ "$result" = "yes" ];
+	then
+		echo "Yes."
+	else
+		echo "No!ssss"
+	fi
+fi
+if [ "${1}" = "--help" ];
+then
+	echo "Usage: did-duke-win [test-url]"
+	exit 1
+fi
+if [ ! -z "${url}" ];
+then
+	result=$(curl "${url}" | grep -oP '(?<=<p class=")\w+')
+	if [ "$result" = "yes" ];
+	then
+		echo "Yes."
+	else
+		echo "No!"
+	fi
+fi	
+	

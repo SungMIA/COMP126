@@ -1,0 +1,18 @@
+#!/bin/bash
+
+script_path="$(realpath ${0})"
+script_dir="$(dirname ${script_path})"
+export CLASSPATH="${script_dir}/bin"
+
+PATTERN=$1
+if [ "${PATTERN}" = "--help" ];
+then
+	echo "Usage: jrep [PATTERN]"
+	exit 1
+elif [ "${#}" = 1 ];
+then
+	java comp290.Jrep "${PATTERN}"
+else
+        echo "Usage: jrep [PATTERN]"
+	exit 1
+fi
